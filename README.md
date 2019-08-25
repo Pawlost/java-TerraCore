@@ -1,2 +1,2 @@
-# TerraAPI
-Terra's API
+# TerraCore
+Terra's core
