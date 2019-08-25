@@ -1,0 +1,4 @@
+rootProject.name = 'TerraCore'
+
+include 'terra-core'
+

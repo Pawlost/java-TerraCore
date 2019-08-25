@@ -1,0 +1,17 @@
+allprojects{
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+    sourceCompatibility = 12
+}
+
+
+group 'com.ritualsoftheold'
+version '1.0-SNAPSHOT'
