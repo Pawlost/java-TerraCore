@@ -1,4 +1,4 @@
-allprojects{
+
     apply plugin: 'java'
 
     repositories {
@@ -10,7 +10,6 @@ allprojects{
     }
 
     sourceCompatibility = 12
-}
 
 
 group 'com.ritualsoftheold'
