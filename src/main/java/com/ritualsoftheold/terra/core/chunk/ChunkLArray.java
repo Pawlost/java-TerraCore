@@ -1,8 +1,8 @@
 package com.ritualsoftheold.terra.core.chunk;
 
+import com.ritualsoftheold.terra.core.DataConstants;
 import com.ritualsoftheold.terra.core.materials.Registry;
 import com.ritualsoftheold.terra.core.materials.TerraObject;
-import com.ritualsoftheold.terra.manager.DataConstants;
 import xerial.larray.LByteArray;
 import xerial.larray.japi.LArrayJ;
 
@@ -35,9 +35,11 @@ public class ChunkLArray {
         return chunkVoxelData.apply(idx);
 
     }
+
     public TerraObject get (int idx){
         return reg.getForWorldId((int)chunkVoxelData.getByte(idx));
     }
+
     public void set(int x, int y, int z, byte data){
         int idx = x + CHUNK_SIZE * (y + CHUNK_SIZE * z);
         chunkVoxelData.update(idx, data);

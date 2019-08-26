@@ -1,4 +1,4 @@
-package com.ritualsoftheold.terra.core.node;
+package com.ritualsoftheold.terra.core.octrees;
 
 public interface OctreeBase {
     public float worldX = 0;

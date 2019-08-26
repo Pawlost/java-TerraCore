@@ -1,4 +1,4 @@
-package com.ritualsoftheold.terra.manager;
+package com.ritualsoftheold.terra.core;
 
 public class DataConstants {
     

@@ -1,4 +1,4 @@
-package com.ritualsoftheold.terra.core.node;
+package com.ritualsoftheold.terra.core.octrees;
 
 public final class OctreeLeaf implements OctreeBase {
     public float worldX;

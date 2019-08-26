@@ -1,4 +1,4 @@
-package com.ritualsoftheold.terra.core.node;
+package com.ritualsoftheold.terra.core.octrees;
 
 /*
 *   New Octree definition. Basic Node for a linear octree

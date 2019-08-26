@@ -1,7 +1,4 @@
-package com.ritualsoftheold.terra.core;
-
-import com.ritualsoftheold.terra.core.materials.Registry;
-import com.ritualsoftheold.terra.core.materials.TerraObject;
+package com.ritualsoftheold.terra.core.materials;
 
 import java.util.HashSet;
 import java.util.Set;

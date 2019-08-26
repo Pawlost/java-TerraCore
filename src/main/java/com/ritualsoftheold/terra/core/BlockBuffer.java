@@ -1,6 +1,6 @@
-package com.ritualsoftheold.terra.core.buffer;
+package com.ritualsoftheold.terra.core;
 
-import com.ritualsoftheold.terra.core.material.TerraObject;
+import com.ritualsoftheold.terra.core.materials.TerraObject;
 
 /**
  * Allows fast access to block data in one chunk or an octree node whose scale
