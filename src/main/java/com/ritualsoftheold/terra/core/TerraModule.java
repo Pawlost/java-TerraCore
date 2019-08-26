@@ -1,10 +1,10 @@
-package com.ritualsoftheold.terra.core.material;
+package com.ritualsoftheold.terra.core;
+
+import com.ritualsoftheold.terra.core.materials.Registry;
+import com.ritualsoftheold.terra.core.materials.TerraObject;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import com.ritualsoftheold.terra.core.material.Registry;
-import com.ritualsoftheold.terra.core.material.TerraObject;
 
 /**
  * Terra modules are used to register materials. After that has been done,

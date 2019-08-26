@@ -1,4 +1,6 @@
-package com.ritualsoftheold.terra.core.material;
+package com.ritualsoftheold.terra.core.materials;
+
+import com.ritualsoftheold.terra.core.TerraModule;
 
 /**
  * Represents a material of block.

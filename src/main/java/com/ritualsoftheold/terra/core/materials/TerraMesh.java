@@ -1,4 +1,4 @@
-package com.ritualsoftheold.terra.core.material;
+package com.ritualsoftheold.terra.core.materials;
 
 public class TerraMesh {
 
