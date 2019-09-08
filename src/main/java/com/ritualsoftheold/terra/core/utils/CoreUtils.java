@@ -1,6 +1,7 @@
 package com.ritualsoftheold.terra.core.utils;
 
 public class CoreUtils {
+
     private String address;
     private long port = 0;
 
