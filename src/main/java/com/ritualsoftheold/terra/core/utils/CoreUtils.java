@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 public class CoreUtils {
     private String address = "";
+    private int port = 0;
 
     public CoreUtils(String[] args){
-        System.out.println(Arrays.toString(args));
         for(int i = 0; i < args.length; i ++){
-            if(args[i].equals("-domain")){
+            if(args[i].equals(Constants.ADDRESS_OPTION)){
                 address = args[i + 1];
+            }else if(args[i].equals(Constants.PORT_OPTION)){
+                port = Integer.parseInt(args[i + 1]);
             }
         }
     }
