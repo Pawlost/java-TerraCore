@@ -1,16 +1,14 @@
 package com.ritualsoftheold.terra.core.chunk;
 
 import com.ritualsoftheold.terra.core.DataConstants;
+import com.ritualsoftheold.terra.core.markers.Marker;
+import com.ritualsoftheold.terra.core.markers.Type;
 import com.ritualsoftheold.terra.core.materials.Registry;
 import com.ritualsoftheold.terra.core.materials.TerraObject;
 import xerial.larray.LByteArray;
 import xerial.larray.japi.LArrayJ;
 
-public class ChunkLArray {
-    public final float x;
-    public final float y;
-    public final float z;
-
+public class ChunkLArray extends Marker {
     private boolean isDifferent;
     private Registry reg;
 
@@ -22,10 +20,7 @@ public class ChunkLArray {
     }
 
     public ChunkLArray(float x, float y, float z, LByteArray chunkVoxelData, Registry reg) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-
+        super(x, y, z, Type.CHUNK);
         this.reg = reg;
         this.chunkVoxelData = chunkVoxelData;
     }

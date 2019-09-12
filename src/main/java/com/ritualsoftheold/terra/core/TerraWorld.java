@@ -1,5 +1,6 @@
 package com.ritualsoftheold.terra.core;
 
+import com.ritualsoftheold.terra.core.markers.Marker;
 import com.ritualsoftheold.terra.core.materials.Registry;
 
 import java.util.List;
@@ -12,19 +13,19 @@ import java.util.concurrent.CompletableFuture;
 public interface TerraWorld {
     /**
      * Adds a load marker. User should make sure that
-     * {@link #updateLoadMarkers()} is not in progress.
+     * {@link #()} is not in progress.
      *
      * @param marker Load marker.
      */
-    void addLoadMarker(Marker marker);
+    void addMarker(Marker marker);
 
     /**
      * Removes a load marker. User should make sure that
-     * {@link #updateLoadMarkers()} is not in progress.
+     * {@link #()} is not in progress.
      *
      * @param marker Load marker.
      */
-    void removeLoadMarker(Marker marker);
+    void removeMarker(Marker marker);
 
     /**
      * Requests load markers to be updated.
@@ -32,9 +33,11 @@ public interface TerraWorld {
      * @return List of completable futures which need to be completed
      * before everything is loaded.
      */
-    List<CompletableFuture<Void>> updateLoadMarkers();
+    void updateMarker(Marker marker);
+
+    boolean checkMarker(Marker marker);
 
     Registry getRegistry();
 
-    void initialWorldGeneration(Marker player);
+    void initialWorldGeneration(Marker marker);
 }
