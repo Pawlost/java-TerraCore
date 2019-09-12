@@ -9,7 +9,7 @@ import xerial.larray.LByteArray;
 import xerial.larray.japi.LArrayJ;
 
 public class ChunkLArray extends Marker {
-    private boolean isDifferent;
+    private boolean isDifferent = false;
     private Registry reg;
 
     public static int CHUNK_SIZE = DataConstants.CHUNK_MAX_BLOCKS;

@@ -1,6 +1,8 @@
 package com.ritualsoftheold.terra.core.materials;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,7 +22,7 @@ public class TerraModule {
     /**
      * Materials registered here.
      */
-    private final Set<TerraObject> materials;
+    private final List<TerraObject> materials;
     
     /**
      * Whether this module has been registered yet or not.
@@ -33,7 +35,7 @@ public class TerraModule {
      */
     public TerraModule(String id) {
         this.uniqueId = id;
-        this.materials = new HashSet<>();
+        this.materials = new ArrayList<>();
     }
     
     /**
