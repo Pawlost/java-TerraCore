@@ -6,9 +6,9 @@ public class CoreUtils {
     private String localAddress;
     private int port = 0;
     private int localPort = 0;
+    private boolean isLocalhost = false;
 
     public CoreUtils(String[] args){
-        boolean isLocalhost = false;
         for(int i = 0; i < args.length; i ++){
             if(args[i].equals(Options.ADDRESS_OPTION)){
                 address = args[i + 1];
@@ -39,6 +39,10 @@ public class CoreUtils {
 
     public int getLocalPort() {
         return localPort;
+    }
+
+    public boolean isLocalhost() {
+        return isLocalhost;
     }
 
     public int getPort() {
