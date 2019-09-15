@@ -1,16 +1,24 @@
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile 'org.xerial.larray:larray_2.12:0.4.1'
+        compile 'it.unimi.dsi:fastutil:8.2.2'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.jmonkeyengine', name: 'jme3-core', version: '3.2.2-stable'
+    }
+
+    sourceCompatibility = 12
+
+    group 'com.ritualsoftheold'
+    version '1.0-SNAPSHOT'
 }
 
-dependencies {
-    compile 'org.xerial.larray:larray_2.12:0.4.1'
-    compile 'it.unimi.dsi:fastutil:8.2.2'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+dependencies{
+    compile project(':3D-model-loader')
 }
-
-sourceCompatibility = 12
-
-group 'com.ritualsoftheold'
-version '1.0-SNAPSHOT'
