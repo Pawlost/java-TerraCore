@@ -18,7 +18,7 @@ public class Registry {
     private Int2ObjectMap<TerraObject> idToObject;
     private Object2ObjectMap<String, TerraObject> nameToObject;
     
-    public Registry(List<String> preferredIds) {
+    private Registry(List<String> preferredIds) {
         this.preferredIds = new ArrayList<>(preferredIds);
         idToObject = new Int2ObjectArrayMap<>(preferredIds.size());
         nameToObject = new Object2ObjectOpenHashMap<>(preferredIds.size());
@@ -78,14 +78,13 @@ public class Registry {
             preferredIds.add(fullName); // ... and assign this here
         }
 
-        worldId++;
-
         // Finally, assign world id to material
         material.setWorldId(worldId);
         
         // Put it to few other maps for ease of use
         nameToObject.put(fullName, material);
-        idToObject.put((short) worldId, material);
+
+        idToObject.put(worldId, material);
         System.out.println(fullName + ": " + worldId);
     }
     

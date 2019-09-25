@@ -14,7 +14,10 @@ public class DataConstants {
     public static final int CHUNK_SCALE = 16;
 
     public static final int CHUNK_SIZE = 64 * 64 * 64;
-    
+
+    public static final int BLOCKS = 64;
+
+
     public static final int CHUNK_COORD_X = 1, CHUNK_COORD_Y = 16, CHUNK_COORD_Z = 256;
     
     public static final float SMALLEST_BLOCK = 0.25f;
