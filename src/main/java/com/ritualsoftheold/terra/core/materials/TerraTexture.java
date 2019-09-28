@@ -73,7 +73,7 @@ public class TerraTexture {
     }
 
     public int getPosition() {
-        return position - 2;
+        return position - 1;
     }
 
     /**

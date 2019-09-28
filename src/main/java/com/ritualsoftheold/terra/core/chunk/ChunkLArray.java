@@ -63,4 +63,8 @@ public class ChunkLArray extends Marker {
     public boolean isDifferent() {
         return isDifferent;
     }
+
+    public void setReg(Registry reg) {
+        this.reg = reg;
+    }
 }
