@@ -67,4 +67,8 @@ public class ChunkLArray extends Marker {
     public void setReg(Registry reg) {
         this.reg = reg;
     }
+
+    public void setChunkVoxelData(LByteArray chunkVoxelData) {
+        this.chunkVoxelData = chunkVoxelData;
+    }
 }
