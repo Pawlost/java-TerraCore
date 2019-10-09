@@ -8,6 +8,10 @@ public class OctreeLeaf extends OctreeNode {
     public final long locCode;
     public final ChunkLArray chunkLArray;
 
+    public OctreeLeaf(float x, float y, float z, int layer){
+        this(x, y, z, layer, -1, null);
+    }
+
     public OctreeLeaf(float x, float y, float z, int layer, long locCode, ChunkLArray chunkLArray) {
         super(x, y, z, layer, Type.LEAF_OCTANT);
         this.locCode = locCode;

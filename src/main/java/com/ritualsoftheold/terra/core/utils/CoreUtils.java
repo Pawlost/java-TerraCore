@@ -39,11 +39,12 @@ public class CoreUtils {
 
     //Get octree layer
     public static int calculateOctreeLayers(int size) {
-        return (int) (Math.log(size) / Math.log(8));
+        //   return (int) (Math.log(size) / Math.log(8));
+        return size / 128;
     }
 
     //Selects octant based on position and worldSize
-    public static int selectOctant(float x, float y, float z, float size){
+    public static int selectOctant(float x, float y, float z, float size) {
         if (x < size / 2 && y < size / 2 && z < size / 2) {
             // 1. Octant
             return 1;
@@ -74,25 +75,25 @@ public class CoreUtils {
     public static OctreeNode createNode(OctreeNode mainNode, int index) {
         switch (index) {
             case 0:
-                return new OctreeNode(mainNode.getPosX() / 2.0f,
-                        mainNode.getPosY() / 2.0f, mainNode.getPosZ() / 2.0f, mainNode.layer + 1);
+                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY() - 32,
+                        mainNode.getPosZ() - 32, mainNode.layer + 1);
             case 1:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() / 2.0f,
-                        mainNode.getPosY() / 2.0f, mainNode.layer + 1);
+                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
+                        mainNode.getPosZ() - 32, mainNode.layer + 1);
             case 2:
-                return new OctreeNode(mainNode.getPosX() / 2.0f, mainNode.getPosY(),
-                        mainNode.getPosZ() / 2.0f, mainNode.layer + 1);
+                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
+                        mainNode.getPosZ() - 32, mainNode.layer + 1);
             case 3:
                 return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),
-                        mainNode.getPosZ() / 2.0f, mainNode.layer + 1);
+                        mainNode.getPosZ() - 32, mainNode.layer + 1);
             case 4:
-                return new OctreeNode(mainNode.getPosX() / 2.0f,
-                        mainNode.getPosY() / 2.0f, mainNode.getPosZ(), mainNode.layer + 1);
+                return new OctreeNode(mainNode.getPosX() - 32,
+                        mainNode.getPosY() - 32, mainNode.getPosZ(), mainNode.layer + 1);
             case 5:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() / 2.0f,
+                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
                         mainNode.getPosZ(), mainNode.layer + 1);
             case 6:
-                return new OctreeNode(mainNode.getPosX() / 2.0f, mainNode.getPosY(),
+                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
                         mainNode.getPosZ(), mainNode.layer + 1);
             case 7:
                 return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),

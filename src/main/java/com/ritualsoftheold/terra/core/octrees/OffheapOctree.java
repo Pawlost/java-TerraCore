@@ -1,8 +1,7 @@
-package com.ritualsoftheold.terra.core.chunk;
+package com.ritualsoftheold.terra.core.octrees;
 
 import com.ritualsoftheold.terra.core.markers.Marker;
 import com.ritualsoftheold.terra.core.markers.Type;
-import com.ritualsoftheold.terra.core.octrees.OctreeNode;
 import com.ritualsoftheold.terra.core.utils.CoreUtils;
 
 import java.util.*;

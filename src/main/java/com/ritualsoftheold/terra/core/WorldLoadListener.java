@@ -1,6 +1,7 @@
 package com.ritualsoftheold.terra.core;
 
 import com.ritualsoftheold.terra.core.chunk.ChunkLArray;
+import com.ritualsoftheold.terra.core.octrees.OffheapOctree;
 
 /**
  * Methods in in this interface will be called when world data is loaded.
@@ -17,4 +18,6 @@ public interface WorldLoadListener {
     
 
     void chunkUnloaded(ChunkLArray chunk);
+
+    void octreeLoaded(OffheapOctree octree);
 }
