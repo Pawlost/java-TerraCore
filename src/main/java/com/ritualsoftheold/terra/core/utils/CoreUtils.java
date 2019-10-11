@@ -10,6 +10,8 @@ public class CoreUtils {
     private int localPort = 0;
     private boolean isLocalhost = false;
 
+    public static final int MAX_LOAD_DISTANCE = 4096;
+
     public CoreUtils(String[] args) {
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
@@ -39,35 +41,34 @@ public class CoreUtils {
 
     //Get octree layer
     public static int calculateOctreeLayers(int size) {
-        //   return (int) (Math.log(size) / Math.log(8));
-        return size / 128;
+        return (int) (Math.log(size) / Math.log(8));
     }
 
     //Selects octant based on position and worldSize
     public static int selectOctant(float x, float y, float z, float size) {
-        if (x < size / 2 && y < size / 2 && z < size / 2) {
+        if (x < size / 4 && y < size / 4 && z < size / 4) {
             // 1. Octant
             return 1;
-        } else if (x > size / 2 && x < size && y < size / 2 && z < size / 2) {
+        } else if (x > size / 4 && x < size && y < size / 4 && z < size / 4) {
             // 2. Octant
             return 2;
-        } else if (x < size / 2 && y > size / 2 && y < size && z < size / 2) {
+        } else if (x < size / 4 && y > size / 4 && y < size && z < size / 4) {
             // 3. Octant
             return 3;
-        } else if (x > size / 2 && x < size && y > size / 2 && y < size && z < size / 2) {
+        } else if (x > size / 4 && x < size && y > size / 4 && y < size && z < size / 4) {
             // 4. Octant
             return 4;
-        } else if (x < size / 2 && y < size / 2 && z > size / 2 && z < size) {
+        } else if (x < size / 4 && y < size / 4 && z > size / 4 && z < size) {
             // 5. Octant
             return 5;
-        } else if (x > size / 2 && x < size && y < size / 2 && z > size / 2 && z < size) {
+        } else if (x > size / 4 && x < size && y < size / 4 && z > size / 4 && z < size) {
             // 6. Octant
             return 6;
-        } else if (x < size / 2 && y > size / 2 && y < size && z > size / 2 && z < size) {
+        } else if (x < size / 4 && y > size / 4 && y < size && z > size / 4 && z < size) {
             // 7. Octant
             return 7;
         } else {
-            // 8. Octant
+            // 4. Octant
             return 8;
         }
     }
@@ -75,29 +76,37 @@ public class CoreUtils {
     public static OctreeNode createNode(OctreeNode mainNode, int index) {
         switch (index) {
             case 0:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY() - 32,
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
+                int difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() - difference / 4, mainNode.getPosY() - difference / 4,
+                        mainNode.getPosZ() - difference / 4, mainNode.layer + 1);
             case 1:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() - difference / 4, mainNode.getPosY() + difference / 4,
+                        mainNode.getPosZ() - difference / 4, mainNode.layer + 1);
             case 2:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() + difference / 4, mainNode.getPosY() - difference / 4,
+                        mainNode.getPosZ() - difference / 4, mainNode.layer + 1);
             case 3:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() + difference / 4, mainNode.getPosY() + difference / 4,
+                        mainNode.getPosZ() - difference / 4, mainNode.layer + 1);
             case 4:
-                return new OctreeNode(mainNode.getPosX() - 32,
-                        mainNode.getPosY() - 32, mainNode.getPosZ(), mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() - difference / 4, mainNode.getPosY() - difference / 4,
+                        mainNode.getPosZ() + difference / 4, mainNode.layer + 1);
             case 5:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
-                        mainNode.getPosZ(), mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() - difference / 4, mainNode.getPosY() + difference / 4,
+                        mainNode.getPosZ() + difference / 4, mainNode.layer + 1);
             case 6:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
-                        mainNode.getPosZ(), mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() + difference / 4, mainNode.getPosY() - difference / 4,
+                        mainNode.getPosZ() + difference / 4, mainNode.layer + 1);
             case 7:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),
-                        mainNode.getPosZ(), mainNode.layer + 1);
+                difference = (int) (MAX_LOAD_DISTANCE / Math.pow(2, mainNode.layer));
+                return new OctreeNode(mainNode.getPosX() + difference / 4, mainNode.getPosY() + difference / 4,
+                        mainNode.getPosZ() + difference / 4, mainNode.layer + 1);
         }
         return null;
     }
