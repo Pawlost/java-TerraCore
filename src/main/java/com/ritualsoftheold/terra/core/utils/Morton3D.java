@@ -8,6 +8,12 @@ package com.ritualsoftheold.terra.core.utils;
  */
 
 public class Morton3D {
+
+    /**
+     * Max size  is 2 097 151 ^ 3
+     */
+    public static final int MAX_MORTON_SIZE = 2097151;
+
     private static final int[] MortonTable3D256
             = {
             0x00000000,

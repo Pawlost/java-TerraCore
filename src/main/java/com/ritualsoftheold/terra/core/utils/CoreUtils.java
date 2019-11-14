@@ -1,7 +1,5 @@
 package com.ritualsoftheold.terra.core.utils;
 
-import com.ritualsoftheold.terra.core.octrees.OctreeNode;
-
 public class CoreUtils {
 
     private String address;
@@ -70,36 +68,6 @@ public class CoreUtils {
             // 8. Octant
             return 8;
         }
-    }
-
-    public static OctreeNode createNode(OctreeNode mainNode, int index) {
-        switch (index) {
-            case 0:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY() - 32,
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
-            case 1:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
-            case 2:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
-            case 3:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),
-                        mainNode.getPosZ() - 32, mainNode.layer + 1);
-            case 4:
-                return new OctreeNode(mainNode.getPosX() - 32,
-                        mainNode.getPosY() - 32, mainNode.getPosZ(), mainNode.layer + 1);
-            case 5:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY() - 32,
-                        mainNode.getPosZ(), mainNode.layer + 1);
-            case 6:
-                return new OctreeNode(mainNode.getPosX() - 32, mainNode.getPosY(),
-                        mainNode.getPosZ(), mainNode.layer + 1);
-            case 7:
-                return new OctreeNode(mainNode.getPosX(), mainNode.getPosY(),
-                        mainNode.getPosZ(), mainNode.layer + 1);
-        }
-        return null;
     }
 
     public String getAddress() {
